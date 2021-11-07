@@ -1,4 +1,5 @@
 #!/bin/bash
+#inspired by: https://github.com/hananabilabd/Phonebook-using-bash-script/blob/master/phonebook
 
 #variables
 SLEEP=/bin/sleep
