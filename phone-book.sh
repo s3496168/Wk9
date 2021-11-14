@@ -66,12 +66,19 @@ while [ $QUIT -eq 0 ] ; do
             read -r SEARCH
             ###################It starts not not work here################
             $PRINTF "Letter is $SEARCH name is $FILE\n"
-            FOUND=$(grep -i "^[A-Z]" " $SEARCH $FILE")
-            $PRINTF "It is $FOUND"
+            #My original example
+            #FOUND=$(grep -i "^[A-Z] $SEARCH $FILE")
+            #Jeffry's suggestion-hangs the program (does not work)
+            FOUND=$(grep -i "^$SEARCH $FILE")
+            #$PRINTF "It is $FOUND"
             if [[ -z "$FOUND" ]] ; then
                 $PRINTF "Sorry, no entry found\n"
             else
-                grep -i "^[A-Z]" "$SEARCH $FILE" | while read -r line ; do
+                $PRINTF "Hooray!"
+                #pair for mine
+                #grep -i "^[A-Z] $SEARCH $FILE" | while read -r line ; do
+                #pair for Jeffry's
+                grep -i "^$SEARCH $FILE" | while read -r line ; do
                 i=$(( i + 1 ))
                 $PRINTF "$i $line\n"
             done
